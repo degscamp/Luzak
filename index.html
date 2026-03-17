@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 DEGS Girls Soccer Camp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:   #0a2a6e;
+      --blue-mid:    #1040b0;
+      --blue-bright: #1a56d4;
+      --gold:        #f5c400;
+      --gold-light:  #ffd740;
+      --gold-dark:   #c99b00;
+      --white:       #ffffff;
+      --off-white:   #f7f8fc;
+      --text-dark:   #0d1b3e;
+      --text-mid:    #3d4f7a;
+      --radius:      12px;
+      --shadow:      0 8px 40px rgba(10,42,110,.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ──────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,42,110,.96);
+      backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { height: 42px; }
+    .nav-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--gold); letter-spacing: .06em; line-height: 1.2;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif; font-size: .85rem; font-weight: 500;
+      color: rgba(255,255,255,.82); text-decoration: none; letter-spacing: .04em;
+      text-transform: uppercase; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--blue-deep) 0%, #061c55 55%, #081e65 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 60%, rgba(245,196,0,.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 15% 20%, rgba(26,86,212,.2) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 85% 80%, rgba(26,86,212,.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Decorative hex grid */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Cpolygon points='30,1 59,16.5 59,47.5 30,63 1,47.5 1,16.5' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: 170px; height: 170px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      border: 4px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px;
+      box-shadow: 0 0 60px rgba(245,196,0,.25), 0 0 0 12px rgba(245,196,0,.06);
+      position: relative; z-index: 1;
+      animation: logoIn .8s cubic-bezier(.22,1,.36,1) both;
+    }
+    .hero-logo img { width: 130px; }
+
+    @keyframes logoIn {
+      from { opacity:0; transform: scale(.7) translateY(20px); }
+      to   { opacity:1; transform: scale(1) translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: .95rem; font-weight: 500;
+      color: var(--gold); letter-spacing: .22em; text-transform: uppercase;
+      margin-bottom: 14px; position: relative; z-index:1;
+      animation: fadeUp .7s .2s both;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 7.5rem);
+      line-height: .92; color: var(--white);
+      position: relative; z-index:1;
+      animation: fadeUp .7s .35s both;
+    }
+    .hero-title span { color: var(--gold); display: block; }
+    .hero-subtitle {
+      font-size: 1.2rem; font-weight: 300; color: rgba(255,255,255,.75);
+      margin-top: 18px; max-width: 520px; line-height: 1.65;
+      position: relative; z-index:1;
+      animation: fadeUp .7s .5s both;
+    }
+    .hero-cta {
+      margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      position: relative; z-index:1;
+      animation: fadeUp .7s .65s both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--blue-deep);
+      font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 15px 36px; border-radius: 50px; text-decoration: none;
+      transition: all .22s; box-shadow: 0 4px 24px rgba(245,196,0,.4);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,196,0,.55); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 2px solid rgba(255,255,255,.5); color: var(--white);
+      font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 13px 34px; border-radius: 50px; text-decoration: none;
+      transition: all .22s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(24px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    .hero-scroll {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,.4); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+      animation: bounce 2.2s infinite 1.5s;
+      z-index:1;
+    }
+    .hero-scroll svg { width: 20px; opacity: .5; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+
+    /* ── STAT STRIP ───────────────────────────────── */
+    .stats-strip {
+      background: var(--gold);
+      padding: 0;
+      display: flex; flex-wrap: wrap;
+    }
+    .stat-item {
+      flex: 1; min-width: 160px;
+      padding: 22px 28px;
+      border-right: 2px solid rgba(10,42,110,.15);
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem;
+      color: var(--blue-deep); line-height: 1;
+    }
+    .stat-label {
+      font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--blue-mid); margin-top: 3px;
+    }
+
+    /* ── SECTION SHARED ───────────────────────────── */
+    section { padding: 88px 5%; }
+    .section-label {
+      font-family: 'Oswald', sans-serif; font-size: .8rem; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--gold-dark);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.4rem);
+      color: var(--blue-deep); line-height: 1;
+    }
+    .section-title span { color: var(--blue-bright); }
+    .divider {
+      width: 56px; height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px; margin: 18px 0 32px;
+    }
+
+    /* ── DETAILS ──────────────────────────────────── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px; margin-top: 8px;
+    }
+    .detail-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--blue-bright);
+      transition: transform .22s, box-shadow .22s;
+    }
+    .detail-card:hover { transform: translateY(-4px); box-shadow: 0 16px 52px rgba(10,42,110,.22); }
+    .detail-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--blue-mid), var(--blue-bright));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+    }
+    .detail-card h3 {
+      font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--text-mid);
+      margin-bottom: 6px;
+    }
+    .detail-card p {
+      font-size: .98rem; font-weight: 500; color: var(--text-dark); line-height: 1.55;
+    }
+    .detail-card .badge {
+      display: inline-block;
+      background: var(--gold); color: var(--blue-deep);
+      font-family: 'Oswald', sans-serif; font-size: .78rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px; margin-top: 6px;
+    }
+
+    /* ── ABOUT / COACH ────────────────────────────── */
+    .about-section {
+      background: linear-gradient(150deg, var(--blue-deep) 0%, #0c2470 100%);
+      position: relative; overflow: hidden;
+    }
+    .about-section::before {
+      content: '';
+      position: absolute; top: -80px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,196,0,.08) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .about-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .about-section .section-label { color: var(--gold-light); }
+    .about-section .section-title { color: var(--white); }
+    .about-section .divider { background: linear-gradient(90deg, var(--gold), transparent); }
+    .about-text p {
+      color: rgba(255,255,255,.78); font-size: 1.05rem; line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--gold-light); font-weight: 600; }
+
+    .what-to-bring {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+    }
+    .what-to-bring h4 {
+      font-family: 'Oswald', sans-serif; font-size: .9rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .bring-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .bring-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: .98rem; color: rgba(255,255,255,.85);
+    }
+    .bring-list li::before {
+      content: '✓';
+      width: 26px; height: 26px;
+      background: var(--gold); color: var(--blue-deep);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 900; flex-shrink: 0;
+    }
+
+    /* ── PRICING ──────────────────────────────────── */
+    .pricing-section { background: var(--white); }
+    .pricing-inner { max-width: 900px; margin: 0 auto; }
+    .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 8px; }
+    .price-card {
+      border-radius: var(--radius);
+      padding: 40px 36px;
+      position: relative; overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .price-card.early {
+      background: linear-gradient(145deg, var(--blue-deep), var(--blue-mid));
+      color: var(--white);
+      border: 2px solid var(--gold);
+    }
+    .price-card.standard {
+      background: var(--off-white);
+      border: 2px solid #dde3f0;
+    }
+    .price-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem; line-height: 1; letter-spacing: -.02em;
+    }
+    .price-card.early .price-tag { color: var(--gold); }
+    .price-card.standard .price-tag { color: var(--blue-mid); }
+    .price-name {
+      font-family: 'Oswald', sans-serif; font-size: .85rem; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .price-card.early .price-name { color: rgba(255,255,255,.7); }
+    .price-card.standard .price-name { color: var(--text-mid); }
+    .price-deadline {
+      font-size: .9rem; margin-top: 10px;
+    }
+    .price-card.early .price-deadline { color: rgba(255,255,255,.65); }
+    .price-card.standard .price-deadline { color: var(--text-mid); }
+    .price-include {
+      margin-top: 20px; font-size: .88rem; font-weight: 600;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .price-card.early .price-include { color: var(--gold-light); }
+    .price-card.standard .price-include { color: var(--blue-mid); }
+    .early-badge {
+      position: absolute; top: 20px; right: -30px;
+      background: var(--gold); color: var(--blue-deep);
+      font-family: 'Oswald', sans-serif; font-size: .75rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 6px 48px; transform: rotate(38deg);
+    }
+
+    /* ── PLAYERS ──────────────────────────────────── */
+    .players-section { background: var(--off-white); }
+    .players-inner { max-width: 1100px; margin: 0 auto; }
+    .players-intro { font-size: 1rem; color: var(--text-mid); max-width: 680px; margin-bottom: 36px; line-height: 1.7; }
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 10px;
+    }
+    .player-chip {
+      background: var(--white);
+      border: 1.5px solid #dde3f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: .88rem; font-weight: 500; color: var(--text-dark);
+      display: flex; align-items: center; gap: 8px;
+      transition: all .18s;
+    }
+    .player-chip:hover { border-color: var(--blue-bright); color: var(--blue-mid); background: #f0f4ff; }
+    .player-chip::before {
+      content: '⚽'; font-size: .75rem; opacity: .5;
+    }
+    .no-player {
+      border-color: var(--gold-dark); color: var(--blue-deep);
+      background: #fffbe6; font-weight: 700;
+    }
+    .no-player::before { content: '🌟'; }
+
+    /* ── REGISTER ─────────────────────────────────── */
+    .register-section {
+      background: linear-gradient(135deg, #f0f4ff, var(--white));
+    }
+    .register-inner { max-width: 780px; margin: 0 auto; }
+    .register-tabs {
+      display: flex; gap: 0;
+      background: #e8ecf7; border-radius: 12px;
+      padding: 4px; margin-bottom: 36px;
+    }
+    .tab-btn {
+      flex: 1; padding: 12px;
+      border: none; background: transparent; cursor: pointer;
+      font-family: 'Oswald', sans-serif; font-size: .9rem; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-mid); border-radius: 10px;
+      transition: all .22s;
+    }
+    .tab-btn.active {
+      background: var(--blue-deep); color: var(--white);
+      box-shadow: 0 4px 16px rgba(10,42,110,.3);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Google Form embed */
+    .gform-wrap {
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); overflow: hidden;
+      border: 1px solid #dde3f0;
+    }
+    .gform-placeholder {
+      padding: 60px 40px; text-align: center;
+      border: 3px dashed #c5cfe0; border-radius: var(--radius); background: #f7f9ff;
+    }
+    .gform-placeholder .form-icon { font-size: 3rem; margin-bottom: 16px; }
+    .gform-placeholder h3 {
+      font-family: 'Oswald', sans-serif; font-size: 1.4rem; color: var(--blue-deep);
+      margin-bottom: 10px;
+    }
+    .gform-placeholder p { color: var(--text-mid); font-size: .95rem; line-height: 1.65; }
+    .gform-placeholder .gform-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-deep); color: var(--white);
+      font-family: 'Oswald', sans-serif; font-size: .95rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 14px 32px; border-radius: 50px; text-decoration: none;
+      margin-top: 24px; transition: all .22s;
+      box-shadow: 0 4px 20px rgba(10,42,110,.3);
+    }
+    .gform-placeholder .gform-link:hover { background: var(--blue-bright); transform: translateY(-2px); }
+
+    /* Mail-in form */
+    .mailin-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 36px 40px; box-shadow: var(--shadow);
+      border: 1px solid #dde3f0;
+    }
+    .mailin-card h3 {
+      font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--blue-mid);
+      margin-bottom: 20px;
+    }
+    .address-block {
+      background: var(--off-white); border-left: 4px solid var(--gold);
+      padding: 18px 20px; border-radius: 0 8px 8px 0;
+      font-size: .96rem; line-height: 1.8; color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+    .address-block strong { font-weight: 700; }
+    .email-row {
+      display: flex; align-items: center; gap: 12px;
+      background: #f0f4ff; border-radius: 8px; padding: 14px 18px;
+      margin-bottom: 8px;
+    }
+    .email-row a { color: var(--blue-bright); font-weight: 600; text-decoration: none; }
+    .email-row a:hover { text-decoration: underline; }
+    .email-note { font-size: .85rem; color: var(--text-mid); line-height: 1.5; }
+
+    /* ── PAYMENT ──────────────────────────────────── */
+    .payment-section { background: var(--white); }
+    .payment-inner {
+      max-width: 800px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+    }
+    .payment-option {
+      background: var(--off-white); border-radius: var(--radius);
+      padding: 32px 28px; border: 1.5px solid #dde3f0;
+      text-align: center;
+    }
+    .payment-option h3 {
+      font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--blue-deep);
+      margin-bottom: 12px;
+    }
+    .payment-option p { font-size: .93rem; color: var(--text-mid); line-height: 1.65; }
+    .venmo-box {
+      background: var(--white);
+      border: 2px solid #008CFF22;
+      border-radius: var(--radius);
+      padding: 20px; margin-top: 20px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .venmo-handle {
+      font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700;
+      color: #3D95CE; margin-bottom: 6px;
+    }
+    .venmo-sub { font-size: .8rem; color: #999; margin-bottom: 12px; }
+    .venmo-qr {
+      width: 160px; height: 160px;
+      background: #fff; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid #eee;
+      overflow: hidden;
+    }
+    .venmo-qr img { width: 100%; height: 100%; object-fit: contain; }
+    .payment-note {
+      grid-column: 1 / -1;
+      background: #fff8e0; border: 1.5px solid var(--gold);
+      border-radius: 10px; padding: 18px 22px;
+      font-size: .92rem; color: var(--text-dark); line-height: 1.6;
+    }
+    .payment-note strong { color: var(--blue-deep); }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--blue-deep);
+      padding: 48px 5% 32px;
+      text-align: center;
+      border-top: 4px solid var(--gold);
+    }
+    footer img { height: 64px; margin-bottom: 16px; opacity: .9; }
+    footer h4 {
+      font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600;
+      color: var(--gold); letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    footer p { color: rgba(255,255,255,.55); font-size: .85rem; line-height: 1.7; }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-sep { width: 40px; height: 2px; background: rgba(255,255,255,.15); margin: 24px auto; }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-inner, .pricing-cards, .payment-inner { grid-template-columns: 1fr; gap: 32px; }
+      .payment-note { grid-column: 1; }
+      .mailin-card { padding: 28px 22px; }
+      .stat-item { min-width: 50%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="Logo_6_cougar_growl.gif" alt="DEGS Logo" />
+      <div class="nav-title">Downingtown East<br>Girls Soccer</div>
+    </div>
+    <div class="nav-links">
+      <a href="#details">Details</a>
+      <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#register">Register</a>
+      <a href="#payment">Payment</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-logo">
+      <img src="Logo_6_cougar_growl.gif" alt="DEGS Logo" />
+    </div>
+    <div class="hero-eyebrow">Downingtown East Girls Soccer Presents</div>
+    <h1 class="hero-title">
+      Girls Only<br>
+      <span>Soccer Camp</span>
+      <span style="font-size:.6em; color:rgba(255,255,255,.6);">2026</span>
+    </h1>
+    <p class="hero-subtitle">
+      Five days of elite training with National A licensed coach Jason Luzak and the DEGS varsity players.
+    </p>
+    <div class="hero-cta">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeeOJhUjrKL-b1Cc8HoZR8H1H3fSuumm1NHJ2JJ8ZoV75rHqA/viewform" target="_blank" class="btn-primary">⚽ Register Now</a>
+      <a href="#details" class="btn-outline">View Details</a>
+    </div>
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- STAT STRIP -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-num">July 6–10</div>
+      <div class="stat-label">Camp Week 2026</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">9AM–12PM</div>
+      <div class="stat-label">Daily Hours</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Ages 8–13</div>
+      <div class="stat-label">Girls Only</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$175</div>
+      <div class="stat-label">Early Bird Price</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">DEHS Turf</div>
+      <div class="stat-label">Location</div>
+    </div>
+  </div>
+
+  <!-- DETAILS -->
+  <section id="details">
+    <div class="section-label">Camp Information</div>
+    <div class="section-title">All the <span>Details</span></div>
+    <div class="divider"></div>
+    <div class="details-grid">
+      <div class="detail-card">
+        <div class="detail-icon">📅</div>
+        <h3>When</h3>
+        <p>July 6 – 10, 2026<br><strong>Monday through Friday</strong><br>9:00 AM – 12:00 PM</p>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon">📍</div>
+        <h3>Where</h3>
+        <p>Downingtown East High School<br><strong>Turf Field</strong></p>
+        <p style="margin-top:8px; font-size:.85rem; color:var(--text-mid);">In case of inclement weather, all players will go indoors at the high school.</p>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon">👧</div>
+        <h3>Who Can Attend</h3>
+        <p><strong>Girls Only</strong> — Ages 8 through 13</p>
+        <span class="badge">Girls Only Event</span>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon">👕</div>
+        <h3>What's Included</h3>
+        <p>Downingtown East Girls Soccer <strong>Camp T-Shirt</strong> included with registration.</p>
+        <p style="margin-top:8px; font-size:.88rem; color:var(--text-mid);">Sizes: YS · YM · YL · AS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / COACH -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-label">About the Camp</div>
+        <div class="section-title">Train With<br>The Best</div>
+        <div class="divider"></div>
+        <p>
+          Groups of <strong>8 to 12 campers</strong> will work through the DEGS warm-up routine, develop fundamental technical skills alongside DEGS varsity players, and compete in soccer-related games and small-sided matches.
+        </p>
+        <p>
+          All sessions are under the direct guidance of <strong>Coach Jason Luzak</strong> — National A licensed and Downingtown East Girls Varsity head coach. This is a rare opportunity for young players to train with the real DEGS program.
+        </p>
+      </div>
+      <div class="what-to-bring">
+        <h4>What to Bring Each Day</h4>
+        <ul class="bring-list">
+          <li>Shin guards (required)</li>
+          <li>Water bottle</li>
+          <li>Soccer ball with <em>your name</em> on it</li>
+          <li>Appropriate footwear</li>
+          <li>Sunscreen &amp; a positive attitude!</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="pricing-inner">
+      <div class="section-label">Registration Cost</div>
+      <div class="section-title">Camp <span>Pricing</span></div>
+      <div class="divider"></div>
+      <div class="pricing-cards">
+        <div class="price-card early">
+          <div class="early-badge">Best Value</div>
+          <div class="price-name">Early Bird Rate</div>
+          <div class="price-tag">$175</div>
+          <div class="price-deadline">📅 Register before <strong>May 1, 2026</strong></div>
+          <div class="price-include">🎽 Includes camp t-shirt</div>
+        </div>
+        <div class="price-card standard">
+          <div class="price-name">Standard Rate</div>
+          <div class="price-tag">$200</div>
+          <div class="price-deadline" style="color:var(--text-mid);">📅 Registered after May 1, 2026</div>
+          <div class="price-include">🎽 Includes camp t-shirt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYERS / BOOSTER -->
+  <!-- REGISTER -->
+  <section class="register-section" id="register">
+    <div class="register-inner">
+      <div class="section-label">Sign Up</div>
+      <div class="section-title">Ready to <span>Register?</span></div>
+      <div class="divider"></div>
+
+      <div style="background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); padding:48px 40px; text-align:center; border-top:4px solid var(--gold);">
+        <div style="font-size:3rem; margin-bottom:18px;">⚽</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--blue-deep); margin-bottom:12px;">2026 Camp Registration</h3>
+        <p style="color:var(--text-mid); font-size:1rem; max-width:480px; margin:0 auto 10px; line-height:1.7;">
+          Our registration form covers player info, parent contacts, your DEGS player referral, and payment — all in one place.
+        </p>
+        <div style="display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; margin:28px 0;">
+          <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
+            <span style="color:var(--gold-dark); font-weight:700;">✓</span> Player info &amp; shirt size
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
+            <span style="color:var(--gold-dark); font-weight:700;">✓</span> Parent contacts
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
+            <span style="color:var(--gold-dark); font-weight:700;">✓</span> DEGS player referral
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
+            <span style="color:var(--gold-dark); font-weight:700;">✓</span> Payment method
+          </div>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeeOJhUjrKL-b1Cc8HoZR8H1H3fSuumm1NHJ2JJ8ZoV75rHqA/viewform" target="_blank" class="btn-primary" style="font-size:1.1rem; padding:17px 48px;">
+          Start Registration →
+        </a>
+        <p style="margin-top:20px; font-size:.82rem; color:#bbb;">Takes about 2 minutes to complete</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="Logo_6_cougar_growl.gif" alt="DEGS Logo" />
+    <h4>Downingtown East Girls Soccer</h4>
+    <p>
+      Questions? Contact Coach Luzak at <a href="/cdn-cgi/l/email-protection#0943457c736862496d687a6d27667b6e"><span class="__cf_email__" data-cfemail="eea4a29b948f85ae8a8f9d8ac0819c89">[email&#160;protected]</span></a><br>
+      Subject line: "2026 DEGS Soccer Camp Registration"
+    </p>
+    <div class="footer-sep"></div>
+    <p style="font-size:.78rem;">© 2026 Downingtown East Girls Soccer · All Rights Reserved</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // Animate ele
