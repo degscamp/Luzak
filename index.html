@@ -1,8 +1,9 @@
-="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 DEGS Girls Soccer Camp</title>
+  <title>2027 DEGS Girls Soccer Camp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -95,6 +96,7 @@
       box-shadow: 0 0 60px rgba(245,196,0,.25), 0 0 0 12px rgba(245,196,0,.06);
       position: relative; z-index: 1;
       animation: logoIn .8s cubic-bezier(.22,1,.36,1) both;
+      animation-delay: .5s;
     }
     .hero-logo img { width: 130px; }
 
@@ -108,21 +110,21 @@
       font-size: .95rem; font-weight: 500;
       color: var(--gold); letter-spacing: .22em; text-transform: uppercase;
       margin-bottom: 14px; position: relative; z-index:1;
-      animation: fadeUp .7s .2s both;
+      animation: fadeUp .7s .1s both;
     }
     .hero-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3.5rem, 10vw, 7.5rem);
       line-height: .92; color: var(--white);
       position: relative; z-index:1;
-      animation: fadeUp .7s .35s both;
+      animation: fadeUp .7s .2s both;
     }
     .hero-title span { color: var(--gold); display: block; }
     .hero-subtitle {
       font-size: 1.2rem; font-weight: 300; color: rgba(255,255,255,.75);
-      margin-top: 18px; max-width: 520px; line-height: 1.65;
+      margin-top: 18px; margin-bottom: 28px; max-width: 560px; line-height: 1.65;
       position: relative; z-index:1;
-      animation: fadeUp .7s .5s both;
+      animation: fadeUp .7s .35s both;
     }
     .hero-cta {
       margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
@@ -295,8 +297,14 @@
 
     /* ── PRICING ──────────────────────────────────── */
     .pricing-section { background: var(--white); }
-    .pricing-inner { max-width: 900px; margin: 0 auto; }
-    .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 8px; }
+    .pricing-inner { max-width: 1100px; margin: 0 auto; }
+    .pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; margin-top: 8px; }
+    .price-time {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: .02em;
+      margin-bottom: 4px;
+    }
+    .price-card.standard .price-time { color: var(--blue-deep); }
+    .price-card.early .price-time { color: var(--white); }
     .price-card {
       border-radius: var(--radius);
       padding: 40px 36px;
@@ -543,18 +551,18 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <div class="hero-logo">
-      <img src="Logo%206%20cougar%20growl.gif" alt="DEGS Logo" />
-    </div>
     <div class="hero-eyebrow">Downingtown East Girls Soccer Presents</div>
     <h1 class="hero-title">
       Girls Only<br>
       <span>Soccer Camp</span>
-      <span style="font-size:.6em; color:rgba(255,255,255,.6);">2026</span>
+      <span style="font-size:.6em; color:rgba(255,255,255,.6);">2027</span>
     </h1>
     <p class="hero-subtitle">
-      Five days of elite training with National A licensed coach Jason Luzak and the DEGS varsity players.
+      Five days of instruction with the high school girls soccer players coordinated by a National A licensed coach Jason Luzak.
     </p>
+    <div class="hero-logo">
+      <img src="Logo%206%20cougar%20growl.gif" alt="DEGS Logo" />
+    </div>
     <div class="hero-cta">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeeOJhUjrKL-b1Cc8HoZR8H1H3fSuumm1NHJ2JJ8ZoV75rHqA/viewform" target="_blank" class="btn-primary">⚽ Register Now</a>
       <a href="#details" class="btn-outline">View Details</a>
@@ -568,20 +576,20 @@
   <!-- STAT STRIP -->
   <div class="stats-strip">
     <div class="stat-item">
-      <div class="stat-num">July 6–10</div>
-      <div class="stat-label">Camp Week 2026</div>
+      <div class="stat-num">July 12–16</div>
+      <div class="stat-label">Camp Week 2027</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">9AM–12PM</div>
-      <div class="stat-label">Daily Hours</div>
+      <div class="stat-num">K–7th</div>
+      <div class="stat-label">Grades Completed</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">Ages 8–13</div>
-      <div class="stat-label">Girls Only</div>
+      <div class="stat-num">4 Options</div>
+      <div class="stat-label">Mini · Half · Full Day</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">$175</div>
-      <div class="stat-label">Early Bird Price</div>
+      <div class="stat-num">From $125</div>
+      <div class="stat-label">Registration Cost</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">DEHS Turf</div>
@@ -598,25 +606,26 @@
       <div class="detail-card">
         <div class="detail-icon">📅</div>
         <h3>When</h3>
-        <p>July 6 – 10, 2026<br><strong>Monday through Friday</strong><br>9:00 AM – 12:00 PM</p>
+        <p>July 12 – 16, 2027<br><strong>Monday through Friday</strong></p>
+        <p style="margin-top:8px; font-size:.85rem; color:var(--text-mid);">Session times vary by camp option — see pricing below.</p>
       </div>
       <div class="detail-card">
         <div class="detail-icon">📍</div>
         <h3>Where</h3>
-        <p>Downingtown East High School<br><strong>Turf Field</strong></p>
-        <p style="margin-top:8px; font-size:.85rem; color:var(--text-mid);">In case of inclement weather, all players will go indoors at the high school.</p>
+        <p>Downingtown East High School<br><strong>Turf Fields</strong></p>
+        <p style="margin-top:8px; font-size:.85rem; color:var(--text-mid);">In case of inclement weather, all players will go indoors at the high school cafeteria, except on Friday.</p>
       </div>
       <div class="detail-card">
         <div class="detail-icon">👧</div>
         <h3>Who Can Attend</h3>
-        <p><strong>Girls Only</strong> — Ages 8 through 13</p>
-        <span class="badge">Girls Only Event</span>
+        <p><strong>Girls Only</strong> — completed Kindergarten through 7th grade</p>
+        <span class="badge">Staffed by East Players</span>
       </div>
       <div class="detail-card">
         <div class="detail-icon">👕</div>
         <h3>What's Included</h3>
         <p>Downingtown East Girls Soccer <strong>Camp T-Shirt</strong> included with registration.</p>
-        <p style="margin-top:8px; font-size:.88rem; color:var(--text-mid);">Sizes: YS · YM · YL · AS</p>
+        <p style="margin-top:8px; font-size:.88rem; color:var(--text-mid);">Sizes: YS · YM · YL · AS · AM</p>
       </div>
     </div>
   </section>
@@ -628,11 +637,14 @@
         <div class="section-label">About the Camp</div>
         <div class="section-title">Train With<br>The Best</div>
         <div class="divider"></div>
-        <p>
-          Groups of <strong>8 to 12 campers</strong> will work through the DEGS warm-up routine, develop fundamental technical skills alongside DEGS varsity players, and compete in soccer-related games and small-sided matches.
+        <p style="font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--gold-light); letter-spacing:.04em;">
+          Staffed by females currently playing at EAST!
         </p>
         <p>
-          All sessions are under the direct guidance of <strong>Coach Jason Luzak</strong> — National A licensed and Downingtown East Girls Varsity head coach. This is a rare opportunity for young players to train with the real DEGS program.
+          Groups of <strong>8 to 12 campers</strong> will work through the DEGS warm-up routine, develop fundamental technical skills alongside DEGS players, and compete in soccer-related games and small-sided matches.
+        </p>
+        <p>
+          All sessions are under the direction of <strong>Coach Jason Luzak</strong> — National A licensed and Downingtown East Girls Varsity head coach. This is a rare opportunity for young players to train with the real DEGS program.
         </p>
       </div>
       <div class="what-to-bring">
@@ -651,21 +663,36 @@
   <!-- PRICING -->
   <section class="pricing-section" id="pricing">
     <div class="pricing-inner">
-      <div class="section-label">Registration Cost</div>
-      <div class="section-title">Camp <span>Pricing</span></div>
+      <div class="section-label">Camp Options &amp; Cost</div>
+      <div class="section-title">Choose Your <span>Camp</span></div>
       <div class="divider"></div>
       <div class="pricing-cards">
-        <div class="price-card early">
-          <div class="early-badge">Best Value</div>
-          <div class="price-name">Early Bird Rate</div>
-          <div class="price-tag">$175</div>
-          <div class="price-deadline">📅 Register before <strong>May 1, 2026</strong></div>
+        <div class="price-card standard">
+          <div class="price-name">Mini-Camp</div>
+          <div class="price-time">9:00 – 10:30 AM</div>
+          <div class="price-tag">$125</div>
+          <div class="price-deadline">👧 Rec players who completed <strong>K or 1st grade</strong></div>
           <div class="price-include">🎽 Includes camp t-shirt</div>
         </div>
         <div class="price-card standard">
-          <div class="price-name">Standard Rate</div>
+          <div class="price-name">Mini-Camp</div>
+          <div class="price-time">10:30 AM – 12:00 PM</div>
+          <div class="price-tag">$125</div>
+          <div class="price-deadline">👧 Rec players who completed <strong>2nd or 3rd grade</strong></div>
+          <div class="price-include">🎽 Includes camp t-shirt</div>
+        </div>
+        <div class="price-card standard">
+          <div class="price-name">Half Day</div>
+          <div class="price-time">9:00 AM – 12:00 PM</div>
           <div class="price-tag">$200</div>
-          <div class="price-deadline" style="color:var(--text-mid);">📅 Registered after May 1, 2026</div>
+          <div class="price-deadline">👧 Players who completed <strong>3rd – 7th grade</strong></div>
+          <div class="price-include">🎽 Includes camp t-shirt</div>
+        </div>
+        <div class="price-card early">
+          <div class="price-name">Full Day</div>
+          <div class="price-time">9:00 AM – 5:00 PM</div>
+          <div class="price-tag">$400</div>
+          <div class="price-deadline">👧 Players who completed <strong>5th – 7th grade</strong></div>
           <div class="price-include">🎽 Includes camp t-shirt</div>
         </div>
       </div>
@@ -673,6 +700,64 @@
   </section>
 
   <!-- PLAYERS / BOOSTER -->
+  <section class="players-section" id="players">
+    <div class="players-inner">
+      <div class="section-label">Support the Program</div>
+      <div class="section-title">DEGS Player <span>Referral</span></div>
+      <div class="divider"></div>
+      <p class="players-intro">
+        If a Downingtown East Girls Soccer player told you about the camp, select her name during registration and a portion of your registration fee will be put toward her booster fee for the 2027 season. Choose <strong>"No specific player"</strong> to send that portion to the general booster fund instead.
+      </p>
+      <div class="players-grid">
+        <div class="player-chip no-player">No specific player</div>
+        <div class="player-chip">Julianna Barry</div>
+        <div class="player-chip">Callie Bowers</div>
+        <div class="player-chip">Brooke Bula</div>
+        <div class="player-chip">Braelyn Burgess</div>
+        <div class="player-chip">Aislee Carr</div>
+        <div class="player-chip">Riley Coulter</div>
+        <div class="player-chip">Lauren Edwards</div>
+        <div class="player-chip">Francesca Fiore</div>
+        <div class="player-chip">Madison Fosmire</div>
+        <div class="player-chip">Stella Gabrys</div>
+        <div class="player-chip">Ava Gandolfo</div>
+        <div class="player-chip">Charlotte Gange</div>
+        <div class="player-chip">Ava Gersbach</div>
+        <div class="player-chip">Madi Gibbons</div>
+        <div class="player-chip">Ellie Gotwald</div>
+        <div class="player-chip">Lyla Haag</div>
+        <div class="player-chip">Brooke Herrington</div>
+        <div class="player-chip">Lauren Herrington</div>
+        <div class="player-chip">Lauren Hodges</div>
+        <div class="player-chip">Bella Horning</div>
+        <div class="player-chip">Kenna Jennings</div>
+        <div class="player-chip">Charlotte Keech</div>
+        <div class="player-chip">Simone Krusi</div>
+        <div class="player-chip">Charlotte Leone</div>
+        <div class="player-chip">Kimmy Lombo</div>
+        <div class="player-chip">Holly Loux</div>
+        <div class="player-chip">Avery Main</div>
+        <div class="player-chip">Mallory Martin</div>
+        <div class="player-chip">Lana Mento</div>
+        <div class="player-chip">Clara Mentrikoski</div>
+        <div class="player-chip">Harper Moneta</div>
+        <div class="player-chip">Mackenzie Mozier</div>
+        <div class="player-chip">Ritvika Munjal</div>
+        <div class="player-chip">Jessica Ogwu</div>
+        <div class="player-chip">Noelle Palmer</div>
+        <div class="player-chip">Lowen Patton</div>
+        <div class="player-chip">Francesca Rullo</div>
+        <div class="player-chip">Talia Ruzzi</div>
+        <div class="player-chip">Molly Schatzel</div>
+        <div class="player-chip">Ellie Scott</div>
+        <div class="player-chip">Skylar Urban</div>
+        <div class="player-chip">Lily Vanemon</div>
+        <div class="player-chip">Peyton White</div>
+        <div class="player-chip">Emily Zajac</div>
+      </div>
+    </div>
+  </section>
+
   <!-- REGISTER -->
   <section class="register-section" id="register">
     <div class="register-inner">
@@ -682,22 +767,22 @@
 
       <div style="background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); padding:48px 40px; text-align:center; border-top:4px solid var(--gold);">
         <div style="font-size:3rem; margin-bottom:18px;">⚽</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--blue-deep); margin-bottom:12px;">2026 Camp Registration</h3>
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--blue-deep); margin-bottom:12px;">2027 Camp Registration</h3>
         <p style="color:var(--text-mid); font-size:1rem; max-width:480px; margin:0 auto 10px; line-height:1.7;">
-          Our registration form covers player info, parent contacts, your DEGS player referral, and payment — all in one place.
+          Registering takes three steps: <strong>1)</strong> fill out and submit the Google Form below, <strong>2)</strong> send payment through Venmo with your daughter's name in the memo line, and <strong>3)</strong> watch your email for confirmation and camp details.
         </p>
         <div style="display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; margin:28px 0;">
           <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
             <span style="color:var(--gold-dark); font-weight:700;">✓</span> Player info &amp; shirt size
           </div>
           <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
+            <span style="color:var(--gold-dark); font-weight:700;">✓</span> Camp option
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
             <span style="color:var(--gold-dark); font-weight:700;">✓</span> Parent contacts
           </div>
           <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
             <span style="color:var(--gold-dark); font-weight:700;">✓</span> DEGS player referral
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-mid);">
-            <span style="color:var(--gold-dark); font-weight:700;">✓</span> Payment method
           </div>
         </div>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeeOJhUjrKL-b1Cc8HoZR8H1H3fSuumm1NHJ2JJ8ZoV75rHqA/viewform" target="_blank" class="btn-primary" style="font-size:1.1rem; padding:17px 48px;">
@@ -708,24 +793,65 @@
     </div>
   </section>
 
+  <!-- PAYMENT -->
+  <section class="payment-section" id="payment">
+    <div style="max-width:800px; margin:0 auto 40px;">
+      <div class="section-label">Step 2</div>
+      <div class="section-title">Send <span>Payment</span></div>
+      <div class="divider"></div>
+    </div>
+    <div class="payment-inner">
+      <div class="payment-option">
+        <h3>How It Works</h3>
+        <p>After submitting the registration form, send your camp fee through Venmo — <strong style="color:var(--blue-deep);">$125</strong> for Mini-Camp, <strong style="color:var(--blue-deep);">$200</strong> for Half Day, or <strong style="color:var(--blue-deep);">$400</strong> for Full Day.</p>
+        <p style="margin-top:12px;">Scan the QR code or search for <strong style="color:var(--blue-deep);">DEGS Luzak</strong> in the Venmo app.</p>
+      </div>
+      <div class="payment-option">
+        <h3>Pay With Venmo</h3>
+        <div class="venmo-box">
+          <div class="venmo-handle">DEGS Luzak</div>
+          <div class="venmo-sub">Search in the Venmo app</div>
+          <div class="venmo-qr">
+            <img src="venmo-qr.png" alt="Venmo QR code for DEGS Luzak" />
+          </div>
+        </div>
+      </div>
+      <div class="payment-note">
+        <strong>Important:</strong> Be sure to write your daughter's name in the Venmo memo line so we can match your payment to her registration. Once both are received, you'll get confirmation and camp details by email.
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <img src="Logo%206%20cougar%20growl.gif" alt="DEGS Logo" />
     <h4>Downingtown East Girls Soccer</h4>
     <p>
-      Questions? Contact Coach Luzak at <a href="/cdn-cgi/l/email-protection#0943457c736862496d687a6d27667b6e"><span class="__cf_email__" data-cfemail="eea4a29b948f85ae8a8f9d8ac0819c89">[email&#160;protected]</span></a><br>
-      Subject line: "2026 DEGS Soccer Camp Registration"
+      Questions? Contact Coach Luzak at <a href="mailto:JLuzak@dasd.org">JLuzak@dasd.org</a><br>
+      Subject line: "2027 DEGS Soccer Camp Registration"
     </p>
     <div class="footer-sep"></div>
-    <p style="font-size:.78rem;">© 2026 Downingtown East Girls Soccer · All Rights Reserved</p>
+    <p style="font-size:.78rem;">© 2027 Downingtown East Girls Soccer · All Rights Reserved</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    function switchTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      document.getElementById('tab-' + tab).classList.add('active');
-      event.target.classList.add('active');
-    }
-
-    // Animate ele
+  <script>
+    // Scroll-reveal for detail and price cards
+    const revealEls = document.querySelectorAll('.detail-card, .price-card');
+    revealEls.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
